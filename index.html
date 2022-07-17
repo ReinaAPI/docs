@@ -314,20 +314,24 @@
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
+          <li>
+            <a href="#mywaifulist" class="toc-h1 toc-link" data-title="MyWaifuList">MyWaifuList</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#random" class="toc-h2 toc-link" data-title="Random">Random</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello, world!</span><span class="dl">"</span><span class="p">);</span>
+        <h1 id='introduction'>Introduction</h1><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello world</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
-<p>Welcome to the Reina API documentation website! Here you can find out how to use our API to the best of your needs!</p>
+<p>Welcome to the Reina API documentation website! Reina API is an API which mainly focuses on Anime. It doesn&#39;t requires an API key.</p>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The Reina API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -340,36 +344,8 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Bad Request -- Your request is invalid.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Not Found -- The specified endpoint could not be found.</td>
 </tr>
 <tr>
 <td>500</td>
@@ -380,7 +356,57 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
-
+<h1 id='mywaifulist'>MyWaifuList</h1><h2 id='random'>Random</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
+<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/random</span><span class="dl">'</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)).</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
+</code></pre></div>
+<blockquote>
+<p>The response schema would be like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "status": 200,
+    "error": false,
+    "message": "Success",
+    "data": {
+        "name": "Rito Sudou",
+        "gender": "Female",
+        "likes": {
+            "count": 9,
+            "rank": 22608
+        },
+        "trash": {
+            "count": 3,
+            "rank": 18460
+        },
+        "image": "https://thicc.mywaifulist.moe/waifus/6865/26579d094b7569696a46e14802608e4b65af340c7150bd1ef2866524ff6c7fa6_thumb.jpeg",
+        "slug": "rito-sudou",
+        "tags": [],
+        "isVTuber": false,
+        "originalName": "須藤 りと",
+        "romajiName": null,
+        "appearances": [
+            {
+                "name": "Urahara",
+                "slug": "urahara",
+                "image": null,
+                "description": "",
+                "url": "https://mywaifulist.moe/waifu/urahara"
+            }
+        ],
+        "origin": null,
+        "age": null,
+        "birthday": null,
+        "height": null,
+        "weight": null,
+        "bloodType": null,
+        "bust": null,
+        "waist": null,
+        "hip": null,
+        "popularityRank": 22779,
+        "description": "No biography written.",
+        "url": "https://mywaifulist.moe/waifu/rito-sudou"
+    }
+}
+</code></pre></div>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
