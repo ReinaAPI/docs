@@ -129,7 +129,7 @@ get(`https://reina-api.vercel.app/api/mwl/character/slug/${slug}`)
 }
 ```
 
-This endpoint returns the information of the given slug from MyWaifuList.
+This endpoint returns the character's information of the given character's slug from MyWaifuList.
 
 ### HTTP Request
 `GET https://reina-api.vercel.app/api/mwl/character/slug/:slug`
@@ -137,4 +137,58 @@ This endpoint returns the information of the given slug from MyWaifuList.
 ### Path Parameters
 Parameter | Required | Description
 --------- | -------- | -----------
-slug     | true     | Slug of the waifu from MyWaifuList
+slug     | true     | Slug of the character from MyWaifuList
+
+## Character Search by Name
+
+```js
+const { get } = require('axios').default
+const query = 'Reina Izumi'
+get(`https://reina-api.vercel.app/api/mwl/character/search?q=${query}`)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))
+```
+
+> The response schema would be like this:
+
+```JSON
+{
+    "status": 200,
+    "error": false,
+    "message": "Success",
+    "pagination": {
+        "currentPage": 1,
+        "totalPages": 1,
+        "hasNextPage": false
+    },
+    "data": [
+        {
+            "name": "Reina Izumi",
+            "slug": "reina-izumi",
+            "originalName": "和泉 玲奈",
+            "appearances": [
+                {
+                    "name": "Myriad Colors Phantom World",
+                    "originalName": "無彩限のファントム・ワールド",
+                    "slug": "myriad-colors-phantom-world",
+                    "url": "https://mywaifulist.moe/series/myriad-colors-phantom-world"
+                }
+            ],
+            "image": "https://thicc.mywaifulist.moe/waifus/1232/6bd02a8775a3c1fe7632fc15545fab102af034df9a33d23e6d4fd58d15b28911_thumb.jpg",
+            "url": "https://mywaifulist.moe/waifu/reina-izumi"
+        }
+    ]
+}
+```
+
+This endpoint searches for a character by its name from MyWaifuList.
+
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/character/search`
+
+### Query Parameters
+Parameter | Required | Description
+--------- | -------- | -----------
+q        | false     | Name of the character to search
+page     | false     | Page of the character search
+type     | false     | Type of the character (all/husbando)
