@@ -20,4 +20,8 @@ code_clipboard: true
 console.log('Hello world')
 ```
 
-Welcome to the Reina API documentation website! Reina API is an API which mainly focuses on Anime. It doesn't requires an API key.
+Welcome to the Reina API documentation website!
+
+Reina API is an API which mainly focuses on Anime. 
+
+You don't need an API key to use this API.
