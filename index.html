@@ -323,6 +323,9 @@
                   <li>
                     <a href="#character-search-by-slug" class="toc-h2 toc-link" data-title="Character Search By Slug">Character Search By Slug</a>
                   </li>
+                  <li>
+                    <a href="#character-search-by-name" class="toc-h2 toc-link" data-title="Character Search by Name">Character Search by Name</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -489,7 +492,7 @@
     }
 }
 </code></pre></div>
-<p>This endpoint returns the information of the given slug from MyWaifuList.</p>
+<p>This endpoint returns the character&#39;s information of the given character&#39;s slug from MyWaifuList.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://reina-api.vercel.app/api/mwl/character/slug/:slug</code></p>
 <h3 id='path-parameters'>Path Parameters</h3>
@@ -503,7 +506,71 @@
 <tr>
 <td>slug</td>
 <td>true</td>
-<td>Slug of the waifu from MyWaifuList</td>
+<td>Slug of the character from MyWaifuList</td>
+</tr>
+</tbody></table>
+<h2 id='character-search-by-name'>Character Search by Name</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
+<span class="kd">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Reina Izumi</span><span class="dl">'</span>
+<span class="kd">get</span><span class="p">(</span><span class="s2">`https://reina-api.vercel.app/api/mwl/character/search?q=</span><span class="p">${</span><span class="nx">query</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
+</code></pre></div>
+<blockquote>
+<p>The response schema would be like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "status": 200,
+    "error": false,
+    "message": "Success",
+    "pagination": {
+        "currentPage": 1,
+        "totalPages": 1,
+        "hasNextPage": false
+    },
+    "data": [
+        {
+            "name": "Reina Izumi",
+            "slug": "reina-izumi",
+            "originalName": "和泉 玲奈",
+            "appearances": [
+                {
+                    "name": "Myriad Colors Phantom World",
+                    "originalName": "無彩限のファントム・ワールド",
+                    "slug": "myriad-colors-phantom-world",
+                    "url": "https://mywaifulist.moe/series/myriad-colors-phantom-world"
+                }
+            ],
+            "image": "https://thicc.mywaifulist.moe/waifus/1232/6bd02a8775a3c1fe7632fc15545fab102af034df9a33d23e6d4fd58d15b28911_thumb.jpg",
+            "url": "https://mywaifulist.moe/waifu/reina-izumi"
+        }
+    ]
+}
+</code></pre></div>
+<p>This endpoint searches for a character by its name from MyWaifuList.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/character/search</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td>false</td>
+<td>Name of the character to search</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td>Page of the character search</td>
+</tr>
+<tr>
+<td>type</td>
+<td>false</td>
+<td>Type of the character (all/husbando)</td>
 </tr>
 </tbody></table>
 
