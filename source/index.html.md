@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 includes:
   - errors
+  - mywaifulist
 
 search: true
 
@@ -16,7 +17,7 @@ code_clipboard: true
 
 
 ```javascript
-console.log("Hello, world!");
+console.log('Hello world')
 ```
 
-Welcome to the Reina API documentation website! Here you can find out how to use our API to the best of your needs!
+Welcome to the Reina API documentation website! Reina API is an API which mainly focuses on Anime. It doesn't requires an API key.
