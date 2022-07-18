@@ -321,7 +321,7 @@
                     <a href="#random" class="toc-h2 toc-link" data-title="Random">Random</a>
                   </li>
                   <li>
-                    <a href="#character-search-by-slug" class="toc-h2 toc-link" data-title="Character Search By Slug">Character Search By Slug</a>
+                    <a href="#get-character-details-by-slug" class="toc-h2 toc-link" data-title="Get Character Details By Slug">Get Character Details By Slug</a>
                   </li>
                   <li>
                     <a href="#character-search-by-name" class="toc-h2 toc-link" data-title="Character Search by Name">Character Search by Name</a>
@@ -436,7 +436,7 @@
 <td>Type of the character (waifu/husbando)</td>
 </tr>
 </tbody></table>
-<h2 id='character-search-by-slug'>Character Search By Slug</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
+<h2 id='get-character-details-by-slug'>Get Character Details By Slug</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
 <span class="kd">const</span> <span class="nx">slug</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">kirisaki-chitoge</span><span class="dl">'</span>
 <span class="kd">get</span><span class="p">(</span><span class="s2">`https://reina-api.vercel.app/api/mwl/character/slug/</span><span class="p">${</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
