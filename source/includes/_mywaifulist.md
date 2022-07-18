@@ -29,6 +29,7 @@ get('https://reina-api.vercel.app/api/mwl/random')
         },
         "image": "https://thicc.mywaifulist.moe/waifus/6865/26579d094b7569696a46e14802608e4b65af340c7150bd1ef2866524ff6c7fa6_thumb.jpeg",
         "slug": "rito-sudou",
+        "nsfw": false,
         "tags": [],
         "isVTuber": false,
         "originalName": "須藤 りと",
@@ -98,6 +99,7 @@ get(`https://reina-api.vercel.app/api/mwl/character/slug/${slug}`)
         },
         "image": "https://thicc.mywaifulist.moe/waifus/132/b5aae2947b7f7419d9f332f07a275db6784d9100bd003fc2a4fd4f382790c7b4_thumb.png",
         "slug": "kirisaki-chitoge",
+        "nsfw": false,
         "tags": [
             "blonde hair"
         ],
