@@ -68,7 +68,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 type        | false     | Type of the character (waifu/husbando)
 
-## Character Search By Slug
+## Get Character Details By Slug
 
 ```js
 const { get } = require('axios').default
