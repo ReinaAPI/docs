@@ -357,13 +357,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello world</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div>
-<p>Welcome to the Reina API documentation website!</p>
-
-<p>Reina API is an API which mainly focuses on Anime. </p>
-
-<p>You don&#39;t need an API key to use this API.</p>
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Reina API documentation website!
+You don&#39;t need an API key to use this API.</p>
 <h1 id='errors'>Errors</h1>
 <p>The Reina API uses the following error codes:</p>
 
@@ -390,11 +386,23 @@
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
-<h1 id='mywaifulist'>MyWaifuList</h1><h2 id='random'>Random</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/random</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h1 id='mywaifulist'>MyWaifuList</h1><h2 id='random'>Random</h2><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/random</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>false</td>
+<td>Type of the character (waifu/husbando)</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>The response schema would be like this:</p>
 </blockquote>
@@ -445,9 +453,9 @@
 }
 </code></pre></div>
 <p>This endpoint gets a random Waifu/Husbando from MyWaifuList and returns the information of the character.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/random</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h2 id='get-character-details-by-slug'>Get Character Details By Slug</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/character/slug/:slug</code></p>
+<h3 id='path-parameters'>Path Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -456,17 +464,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>false</td>
-<td>Type of the character (waifu/husbando)</td>
+<td>slug</td>
+<td>true</td>
+<td>Slug of the character from MyWaifuList</td>
 </tr>
 </tbody></table>
-<h2 id='get-character-details-by-slug'>Get Character Details By Slug</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">const</span> <span class="nx">slug</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">kirisaki-chitoge</span><span class="dl">'</span>
-<span class="kd">get</span><span class="p">(</span><span class="s2">`https://reina-api.vercel.app/api/mwl/character/slug/</span><span class="p">${</span><span class="nx">slug</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+
 <blockquote>
 <p>The response schema would be like this:</p>
 </blockquote>
@@ -500,7 +503,7 @@
                 "slug": "nisekoi-false-love",
                 "image": "https://thicc.mywaifulist.moe/series/94/4deb14f4a2ab2b7f04a95db39f8ba2c2a2d5a20ba73988c79f1c0195ccd0066c_thumbnail.jpeg",
                 "description": "Raku Ichijou, a first-year student at Bonyari High School, is the sole heir to an intimidating yakuza family. Ten years ago, Raku made a promise to his childhood friend. Now, all he has to go on is a pendant with a lock, which can only be unlocked with the key which the girl took with her when they parted.\r\n\r\nNow, years later, Raku has grown into a typical teenager, and all he wants is to remain as uninvolved in his yakuza background as possible while spending his school days alongside his middle school crush Kosaki Onodera. However, when the American Bee Hive Gang invades his family's turf, Raku's idyllic romantic dreams are sent for a toss as he is dragged into a frustrating conflict: Raku is to pretend that he is in a romantic relationship with Chitoge Kirisaki, the beautiful daughter of the Bee Hive's chief, so as to reduce the friction between the two groups. Unfortunately, reality could not be farther from this whopping lie—Raku and Chitoge fall in hate at first sight, as the girl is convinced he is a pathetic pushover, and in Raku's eyes, Chitoge is about as attractive as a savage gorilla. \r\n\r\nNisekoi follows the daily antics of this mismatched couple who have been forced to get along for the sake of maintaining the city's peace. With many more girls popping up his life, all involved with Raku's past somehow, his search for the girl who holds his heart and his promise leads him in more unexpected directions than he expects.\r\n\r\n[Written by MAL Rewrite]",
-                "url": "https://mywaifulist.moe/waifu/nisekoi-false-love"
+                "url": "https://mywaifulist.moe/series/nisekoi-false-love"
             }
         ],
         "origin": "America",
@@ -519,9 +522,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the character&#39;s information of the given character&#39;s slug from MyWaifuList.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/character/slug/:slug</code></p>
-<h3 id='path-parameters'>Path Parameters</h3>
+<h2 id='character-search-by-name'>Character Search by Name</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/character/search</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -530,17 +533,22 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>slug</td>
-<td>true</td>
-<td>Slug of the character from MyWaifuList</td>
+<td>q</td>
+<td>false</td>
+<td>Name of the character to search</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td>Page of the character search</td>
+</tr>
+<tr>
+<td>type</td>
+<td>false</td>
+<td>Type of the character (all/husbando)</td>
 </tr>
 </tbody></table>
-<h2 id='character-search-by-name'>Character Search by Name</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Reina Izumi</span><span class="dl">'</span>
-<span class="kd">get</span><span class="p">(</span><span class="s2">`https://reina-api.vercel.app/api/mwl/character/search?q=</span><span class="p">${</span><span class="nx">query</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+
 <blockquote>
 <p>The response schema would be like this:</p>
 </blockquote>
@@ -573,37 +581,9 @@
 }
 </code></pre></div>
 <p>This endpoint searches for a character by its name from MyWaifuList.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/character/search</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>q</td>
-<td>false</td>
-<td>Name of the character to search</td>
-</tr>
-<tr>
-<td>page</td>
-<td>false</td>
-<td>Page of the character search</td>
-</tr>
-<tr>
-<td>type</td>
-<td>false</td>
-<td>Type of the character (all/husbando)</td>
-</tr>
-</tbody></table>
-<h2 id='get-waifu-of-the-day'>Get Waifu of the day</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/waifu-of-the-day</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-waifu-of-the-day'>Get Waifu of the day</h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/waifu-of-the-day</code></p>
+
 <blockquote>
 <p>The response schema would be like this:</p>
 </blockquote>
@@ -635,14 +615,14 @@
                 "slug": "fly-me-to-the-moon-manga",
                 "image": "https://thicc.mywaifulist.moe/series/3804/b15840735762aa56a0b4716089105e0632ef7e66d8662c04ce4c263c7f969b27_thumbnail.jpeg",
                 "description": "Having grown up ridiculed for his bizarre name, Nasa Yuzaki strives to be remembered for something more. Fortunately, it seems he's on the right path, ranking first in the nation's mock exams and set to enter his high school of choice.\r\n\r\nHowever, everything changes in a single night when he notices a girl across the street on his way home. Enraptured by her overwhelming cuteness, it's love at first sight for Nasa. But in his infatuated daze, he fails to notice the approaching danger speeding down the road and finds himself at death's door. Barely alive thanks to the girl's intervention, Nasa musters the courage to confess his love to her, fearing she might otherwise vanish from his life. She accepts his proposal on one condition: marriage, to which Nasa gladly accepts before passing out from his injuries. Upon waking, however, the girl is nowhere to be found.\r\n\r\nAfter recovering from his injuries, Nasa tosses his previous ambitions aside and dedicates his life to finding the girl that captured his heart, yet several years pass to no avail. But one night, when an unexpected visitor comes knocking on his door, Nasa finds himself facing a woman that would forever change his world: his wife.",
-                "url": "https://mywaifulist.moe/waifu/fly-me-to-the-moon-manga"
+                "url": "https://mywaifulist.moe/series/fly-me-to-the-moon-manga"
             },
             {
                 "name": "Fly Me to the Moon",
                 "slug": "fly-me-to-the-moon",
                 "image": "https://thicc.mywaifulist.moe/series/5229/b40d16cc1cffb4564a4798d4861d02fb2a22ceac0c62653fda7cd48e229e46f9_thumbnail.jpeg",
                 "description": "Having grown up ridiculed for his bizarre name, Nasa Yuzaki strives to be remembered for something more. Fortunately, it seems he's on the right path, ranking first in the nation's mock exams and set to enter his high school of choice.\r\n\r\nHowever, everything changes in a single night when he notices a girl across the street on his way home. Enraptured by her overwhelming cuteness, it's love at first sight for Nasa. But in his infatuated daze, he fails to notice the approaching danger speeding down the road and finds himself at death's door. Barely alive thanks to the girl's intervention, Nasa musters the courage to confess his love to her, fearing she might otherwise vanish from his life. She accepts his proposal on one condition: marriage, to which Nasa gladly accepts before passing out from his injuries. Upon waking, however, the girl is nowhere to be found.\r\n\r\nAfter recovering from his injuries, Nasa tosses his previous ambitions aside and dedicates his life to finding the girl that captured his heart, yet several years pass to no avail. But one night, when an unexpected visitor comes knocking on his door, Nasa finds himself facing a woman that would forever change his world: his wife.",
-                "url": "https://mywaifulist.moe/waifu/fly-me-to-the-moon"
+                "url": "https://mywaifulist.moe/series/fly-me-to-the-moon"
             }
         ],
         "origin": null,
@@ -661,13 +641,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the data for waifu of the day in MyWaifuList.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/waifu-of-the-day</code></p>
-<h2 id='get-popular-waifus'>Get Popular Waifus</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/popular</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-popular-waifus'>Get Popular Waifus</h2><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/popular</code></p>
+
 <blockquote>
 <p>The reponse schema would be like this:</p>
 </blockquote>
@@ -787,13 +763,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the ranking of the most popular waifus of all time in MyWaifuList.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/popular</code></p>
-<h2 id='get-best-waifus'>Get Best Waifus</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/best</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-best-waifus'>Get Best Waifus</h2><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/best</code></p>
+
 <blockquote>
 <p>The reponse schema would be like this:</p>
 </blockquote>
@@ -861,13 +833,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the ranking of the best waifus of all time in MyWaifuList.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/best</code></p>
-<h2 id='get-popular-v-tubers'>Get Popular V-Tubers</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/vtubers</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-popular-v-tubers'>Get Popular V-Tubers</h2><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/vtubers</code></p>
+
 <blockquote>
 <p>The reponse schema would be like this:</p>
 </blockquote>
@@ -961,13 +929,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the ranking of the most popular v-tubers of all time in MyWaifuList.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/vtubers</code></p>
-<h2 id='get-trash-waifus'>Get Trash Waifus</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/trash</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-trash-waifus'>Get Trash Waifus</h2><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/trash</code></p>
+
 <blockquote>
 <p>The reponse schema would be like this:</p>
 </blockquote>
@@ -1074,13 +1038,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the ranking of the worst waifus of all time in MyWaifuList.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/trash</code></p>
-<h2 id='get-popular-waifus-for-the-current-season'>Get Popular Waifus for the current Season</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/current/popular</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-popular-waifus-for-the-current-season'>Get Popular Waifus for the current Season</h2><h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/current/popular</code></p>
+
 <blockquote>
 <p>The reponse schema would be like this:</p>
 </blockquote>
@@ -1161,13 +1121,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the most popular waifus for the current season in MyWaifuList.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/current/popular</code></p>
-<h2 id='get-best-waifus-for-the-current-season'>Get Best Waifus for the current Season</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/current/best</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-best-waifus-for-the-current-season'>Get Best Waifus for the current Season</h2><h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/current/best</code></p>
+
 <blockquote>
 <p>The reponse schema would be like this:</p>
 </blockquote>
@@ -1248,13 +1204,9 @@
 }
 </code></pre></div>
 <p>This endpoint returns the ranking of the best waifus for the current season in MyWaifuList.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/current/best</code></p>
-<h2 id='get-trash-waifus-for-the-current-season'>Get Trash Waifus for the current Season</h2><div class="highlight"><pre class="highlight javascript"><code><span class="kd">const</span> <span class="p">{</span> <span class="kd">get</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span>
-<span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://reina-api.vercel.app/api/mwl/current/trash</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">))</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
-</code></pre></div>
+<h2 id='get-trash-waifus-for-the-current-season'>Get Trash Waifus for the current Season</h2><h3 id='http-request-11'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/current/trash</code></p>
+
 <blockquote>
 <p>The reponse schema would be like this:</p>
 </blockquote>
@@ -1361,8 +1313,6 @@
 }
 </code></pre></div>
 <p>This endpoint returns the ranking of the worst waifus for the current season in MyWaifuList.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/current/trash</code></p>
 
       </div>
       <div class="dark-box">
