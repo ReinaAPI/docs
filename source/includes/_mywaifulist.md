@@ -2,12 +2,13 @@
 
 ## Random
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/random')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/random`
+
+### Query Parameters
+Parameter | Required | Description
+--------- | -------- | -----------
+type        | false     | Type of the character (waifu/husbando)
 
 > The response schema would be like this:
 
@@ -61,23 +62,15 @@ get('https://reina-api.vercel.app/api/mwl/random')
 
 This endpoint gets a random Waifu/Husbando from MyWaifuList and returns the information of the character.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/random`
-
-### Query Parameters
-Parameter | Required | Description
---------- | -------- | -----------
-type        | false     | Type of the character (waifu/husbando)
-
 ## Get Character Details By Slug
 
-```js
-const { get } = require('axios').default
-const slug = 'kirisaki-chitoge'
-get(`https://reina-api.vercel.app/api/mwl/character/slug/${slug}`)
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/character/slug/:slug`
+
+### Path Parameters
+Parameter | Required | Description
+--------- | -------- | -----------
+slug     | true     | Slug of the character from MyWaifuList
 
 > The response schema would be like this:
 
@@ -112,7 +105,7 @@ get(`https://reina-api.vercel.app/api/mwl/character/slug/${slug}`)
                 "slug": "nisekoi-false-love",
                 "image": "https://thicc.mywaifulist.moe/series/94/4deb14f4a2ab2b7f04a95db39f8ba2c2a2d5a20ba73988c79f1c0195ccd0066c_thumbnail.jpeg",
                 "description": "Raku Ichijou, a first-year student at Bonyari High School, is the sole heir to an intimidating yakuza family. Ten years ago, Raku made a promise to his childhood friend. Now, all he has to go on is a pendant with a lock, which can only be unlocked with the key which the girl took with her when they parted.\r\n\r\nNow, years later, Raku has grown into a typical teenager, and all he wants is to remain as uninvolved in his yakuza background as possible while spending his school days alongside his middle school crush Kosaki Onodera. However, when the American Bee Hive Gang invades his family's turf, Raku's idyllic romantic dreams are sent for a toss as he is dragged into a frustrating conflict: Raku is to pretend that he is in a romantic relationship with Chitoge Kirisaki, the beautiful daughter of the Bee Hive's chief, so as to reduce the friction between the two groups. Unfortunately, reality could not be farther from this whopping lie—Raku and Chitoge fall in hate at first sight, as the girl is convinced he is a pathetic pushover, and in Raku's eyes, Chitoge is about as attractive as a savage gorilla. \r\n\r\nNisekoi follows the daily antics of this mismatched couple who have been forced to get along for the sake of maintaining the city's peace. With many more girls popping up his life, all involved with Raku's past somehow, his search for the girl who holds his heart and his promise leads him in more unexpected directions than he expects.\r\n\r\n[Written by MAL Rewrite]",
-                "url": "https://mywaifulist.moe/waifu/nisekoi-false-love"
+                "url": "https://mywaifulist.moe/series/nisekoi-false-love"
             }
         ],
         "origin": "America",
@@ -133,23 +126,17 @@ get(`https://reina-api.vercel.app/api/mwl/character/slug/${slug}`)
 
 This endpoint returns the character's information of the given character's slug from MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/character/slug/:slug`
-
-### Path Parameters
-Parameter | Required | Description
---------- | -------- | -----------
-slug     | true     | Slug of the character from MyWaifuList
-
 ## Character Search by Name
 
-```js
-const { get } = require('axios').default
-const query = 'Reina Izumi'
-get(`https://reina-api.vercel.app/api/mwl/character/search?q=${query}`)
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/character/search`
+
+### Query Parameters
+Parameter | Required | Description
+--------- | -------- | -----------
+q        | false     | Name of the character to search
+page     | false     | Page of the character search
+type     | false     | Type of the character (all/husbando)
 
 > The response schema would be like this:
 
@@ -185,24 +172,10 @@ get(`https://reina-api.vercel.app/api/mwl/character/search?q=${query}`)
 
 This endpoint searches for a character by its name from MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/character/search`
-
-### Query Parameters
-Parameter | Required | Description
---------- | -------- | -----------
-q        | false     | Name of the character to search
-page     | false     | Page of the character search
-type     | false     | Type of the character (all/husbando)
-
 ## Get Waifu of the day
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/waifu-of-the-day')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/waifu-of-the-day`
 
 > The response schema would be like this:
 
@@ -235,14 +208,14 @@ get('https://reina-api.vercel.app/api/mwl/waifu-of-the-day')
                 "slug": "fly-me-to-the-moon-manga",
                 "image": "https://thicc.mywaifulist.moe/series/3804/b15840735762aa56a0b4716089105e0632ef7e66d8662c04ce4c263c7f969b27_thumbnail.jpeg",
                 "description": "Having grown up ridiculed for his bizarre name, Nasa Yuzaki strives to be remembered for something more. Fortunately, it seems he's on the right path, ranking first in the nation's mock exams and set to enter his high school of choice.\r\n\r\nHowever, everything changes in a single night when he notices a girl across the street on his way home. Enraptured by her overwhelming cuteness, it's love at first sight for Nasa. But in his infatuated daze, he fails to notice the approaching danger speeding down the road and finds himself at death's door. Barely alive thanks to the girl's intervention, Nasa musters the courage to confess his love to her, fearing she might otherwise vanish from his life. She accepts his proposal on one condition: marriage, to which Nasa gladly accepts before passing out from his injuries. Upon waking, however, the girl is nowhere to be found.\r\n\r\nAfter recovering from his injuries, Nasa tosses his previous ambitions aside and dedicates his life to finding the girl that captured his heart, yet several years pass to no avail. But one night, when an unexpected visitor comes knocking on his door, Nasa finds himself facing a woman that would forever change his world: his wife.",
-                "url": "https://mywaifulist.moe/waifu/fly-me-to-the-moon-manga"
+                "url": "https://mywaifulist.moe/series/fly-me-to-the-moon-manga"
             },
             {
                 "name": "Fly Me to the Moon",
                 "slug": "fly-me-to-the-moon",
                 "image": "https://thicc.mywaifulist.moe/series/5229/b40d16cc1cffb4564a4798d4861d02fb2a22ceac0c62653fda7cd48e229e46f9_thumbnail.jpeg",
                 "description": "Having grown up ridiculed for his bizarre name, Nasa Yuzaki strives to be remembered for something more. Fortunately, it seems he's on the right path, ranking first in the nation's mock exams and set to enter his high school of choice.\r\n\r\nHowever, everything changes in a single night when he notices a girl across the street on his way home. Enraptured by her overwhelming cuteness, it's love at first sight for Nasa. But in his infatuated daze, he fails to notice the approaching danger speeding down the road and finds himself at death's door. Barely alive thanks to the girl's intervention, Nasa musters the courage to confess his love to her, fearing she might otherwise vanish from his life. She accepts his proposal on one condition: marriage, to which Nasa gladly accepts before passing out from his injuries. Upon waking, however, the girl is nowhere to be found.\r\n\r\nAfter recovering from his injuries, Nasa tosses his previous ambitions aside and dedicates his life to finding the girl that captured his heart, yet several years pass to no avail. But one night, when an unexpected visitor comes knocking on his door, Nasa finds himself facing a woman that would forever change his world: his wife.",
-                "url": "https://mywaifulist.moe/waifu/fly-me-to-the-moon"
+                "url": "https://mywaifulist.moe/series/fly-me-to-the-moon"
             }
         ],
         "origin": null,
@@ -263,17 +236,10 @@ get('https://reina-api.vercel.app/api/mwl/waifu-of-the-day')
 
 This endpoint returns the data for waifu of the day in MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/waifu-of-the-day`
-
 ## Get Popular Waifus
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/popular')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/popular`
 
 > The reponse schema would be like this:
 
@@ -396,17 +362,10 @@ get('https://reina-api.vercel.app/api/mwl/popular')
 
 This endpoint returns the ranking of the most popular waifus of all time in MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/popular`
-
 ## Get Best Waifus
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/best')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/best`
 
 > The reponse schema would be like this:
 
@@ -477,17 +436,10 @@ get('https://reina-api.vercel.app/api/mwl/best')
 
 This endpoint returns the ranking of the best waifus of all time in MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/best`
-
 ## Get Popular V-Tubers
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/vtubers')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/vtubers`
 
 > The reponse schema would be like this:
 
@@ -584,17 +536,10 @@ get('https://reina-api.vercel.app/api/mwl/vtubers')
 
 This endpoint returns the ranking of the most popular v-tubers of all time in MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/vtubers`
-
 ## Get Trash Waifus
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/trash')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/trash`
 
 > The reponse schema would be like this:
 
@@ -704,17 +649,10 @@ get('https://reina-api.vercel.app/api/mwl/trash')
 
 This endpoint returns the ranking of the worst waifus of all time in MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/trash`
-
 ## Get Popular Waifus for the current Season
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/current/popular')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/current/popular`
 
 > The reponse schema would be like this:
 
@@ -798,17 +736,10 @@ get('https://reina-api.vercel.app/api/mwl/current/popular')
 
 This endpoint returns the most popular waifus for the current season in MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/current/popular`
-
 ## Get Best Waifus for the current Season
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/current/best')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/current/best`
 
 > The reponse schema would be like this:
 
@@ -892,17 +823,10 @@ get('https://reina-api.vercel.app/api/mwl/current/best')
 
 This endpoint returns the ranking of the best waifus for the current season in MyWaifuList.
 
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/current/best`
-
 ## Get Trash Waifus for the current Season
 
-```js
-const { get } = require('axios').default
-get('https://reina-api.vercel.app/api/mwl/current/trash')
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-```
+### HTTP Request
+`GET https://reina-api.vercel.app/api/mwl/current/trash`
 
 > The reponse schema would be like this:
 
@@ -1011,6 +935,3 @@ get('https://reina-api.vercel.app/api/mwl/current/trash')
 ```
 
 This endpoint returns the ranking of the worst waifus for the current season in MyWaifuList.
-
-### HTTP Request
-`GET https://reina-api.vercel.app/api/mwl/current/trash`
