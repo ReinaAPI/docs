@@ -350,6 +350,15 @@
                   <li>
                     <a href="#get-trash-waifus-for-the-current-season" class="toc-h2 toc-link" data-title="Get Trash Waifus for the current Season">Get Trash Waifus for the current Season</a>
                   </li>
+                  <li>
+                    <a href="#get-airing-anime-of-the-season" class="toc-h2 toc-link" data-title="Get Airing Anime of the Season">Get Airing Anime of the Season</a>
+                  </li>
+                  <li>
+                    <a href="#get-series-data-by-its-slug" class="toc-h2 toc-link" data-title="Get Series Data by its Slug">Get Series Data by its Slug</a>
+                  </li>
+                  <li>
+                    <a href="#series-search-by-name" class="toc-h2 toc-link" data-title="Series Search By Name">Series Search By Name</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -454,7 +463,7 @@ You don&#39;t need an API key to use this API.</p>
 </code></pre></div>
 <p>This endpoint gets a random Waifu/Husbando from MyWaifuList and returns the information of the character.</p>
 <h2 id='get-character-details-by-slug'>Get Character Details By Slug</h2><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/character/slug/:slug</code></p>
+<p><code>GET https://reina-api.vercel.app/api/mwl/character/:slug</code></p>
 <h3 id='path-parameters'>Path Parameters</h3>
 <table><thead>
 <tr>
@@ -523,7 +532,7 @@ You don&#39;t need an API key to use this API.</p>
 </code></pre></div>
 <p>This endpoint returns the character&#39;s information of the given character&#39;s slug from MyWaifuList.</p>
 <h2 id='character-search-by-name'>Character Search by Name</h2><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://reina-api.vercel.app/api/mwl/character/search</code></p>
+<p><code>GET https://reina-api.vercel.app/api/mwl/character</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1313,7 +1322,509 @@ You don&#39;t need an API key to use this API.</p>
 }
 </code></pre></div>
 <p>This endpoint returns the ranking of the worst waifus for the current season in MyWaifuList.</p>
+<h2 id='get-airing-anime-of-the-season'>Get Airing Anime of the Season</h2><h3 id='http-request-12'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/airing/current</code></p>
 
+<blockquote>
+<p>The reponse schema would be like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "status": 200,
+    "error": false,
+    "message": "Success",
+    "data": {
+        "title": "Summer 2022 Anime",
+        "anime": [
+            {
+                "name": "Alternate World Pharmacy",
+                "originalName": "異世界薬局",
+                "slug": "alternate-world-pharmacy",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6374/096b0a4bad235b05f4aa72b4653db13adfa2cfac7431d7fb5480716a044b26a0_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/alternate-world-pharmacy"
+            },
+            {
+                "name": "Black Summoner",
+                "originalName": "リコリス・リコイル",
+                "slug": "black-summoner",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6368/47498a98353bb96e88710062815ca617cf037e8a25c7700e2457266441752ea6_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/black-summoner"
+            },
+            {
+                "name": "Call of the Night",
+                "originalName": "よふかしのうた",
+                "slug": "call-of-the-night",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6345/ae3516a91d0a1cc54fb0254ae03ebc8ddf35fd2c4a40ccb7d25ecfaa77db1dd5_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/call-of-the-night"
+            },
+            {
+                "name": "Cardfight!! Vanguard: Will+Dress",
+                "originalName": "カードファイト!! ヴァンガード will+Dress",
+                "slug": "cardfight-vanguard-will-dress",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6364/1217068704fc6fda839c7699752099c481d268e393704a8f5daf3b0d3ee3bcdc_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/cardfight-vanguard-will-dress"
+            },
+            {
+                "name": "Classroom of the Elite 2nd Season",
+                "originalName": "ようこそ実力至上主義の教室へ 2期",
+                "slug": "classroom-of-the-elite-2nd-season",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6370/406d810424e61c87b134dd083d0893401b44a9ac118827a8cd9fa6e03b6de9ec_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/classroom-of-the-elite-2nd-season"
+            },
+            {
+                "name": "Compulsive Gambler Twin",
+                "originalName": "賭ケグルイ双",
+                "slug": "compulsive-gambler-twin",
+                "type": "ONA",
+                "image": "https://thicc.mywaifulist.moe/series/6380/b70096fdb46d5712d34e1db6d56feb912cd5e6955208b9d58d623105cbdca3fb_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/compulsive-gambler-twin"
+            },
+            {
+                "name": "Shine Post",
+                "originalName": "シャインポスト",
+                "slug": "shine-post",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6223/def37f8e29477d3f277eb52c85a41a414d7a0ddc6f2498c86c839b0cf75f1509_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/shine-post"
+            },
+            {
+                "name": "Shoot! Goal to the Future",
+                "originalName": "シュート! Goal to the Future",
+                "slug": "shoot-goal-to-the-future",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6360/3cba9ffaefb3e44a2524cb8214b474b625425ab9c27c6e3157895a36cd6ca84a_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/shoot-goal-to-the-future"
+            },
+            {
+                "name": "Slave Harem in the Labyrinth of the Other World",
+                "originalName": "異世界迷宮でハーレムを",
+                "slug": "slave-harem-in-the-labyrinth-of-the-other-world",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6264/5181ed7147bcebbe8d4a8a230f973c46f74c099b0e58306ef654174ed28545d7_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/slave-harem-in-the-labyrinth-of-the-other-world"
+            },
+            {
+                "name": "Smile of the Arsnotoria the Animation",
+                "originalName": "咲う アルスノトリア すんっ！",
+                "slug": "smile-of-the-arsnotoria-the-animation",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6410/d848891d2526bc04973640330a5a7b314670c054be0cd1ec3b50c99776f25433_thumbnail.png",
+                "url": "https://mywaifulist.moe/series/smile-of-the-arsnotoria-the-animation"
+            },
+            {
+                "name": "Teppen!!!!!!!!!!!!!!!",
+                "originalName": "てっぺんっ!!!!!!!!!!!!!!!",
+                "slug": "teppen",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6369/e6c10fbde875b56eccf11f9e9dbc4aeb854ef5722749b50f2cca8538f57dbd12_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/teppen"
+            },
+            {
+                "name": "The Devil is a Part-Timer! 2nd Season",
+                "originalName": "はたらく魔王さま！",
+                "slug": "the-devil-is-a-part-timer-2nd-season",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6340/4d6c88e00e3ed2175d586203613c4ffa97bdc18657dfecd4b7e469a3bcacb1f3_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/the-devil-is-a-part-timer-2nd-season"
+            },
+            {
+                "name": "The Prince of Tennis II: U-17 World Cup",
+                "originalName": "新テニスの王子様 U-17 WORLD CUP",
+                "slug": "the-prince-of-tennis-ii-u-17-world-cup",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6359/51c868c20a4077aebaf215f4f8500d5b08aaf933f8a62233851181b39efbd851_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/the-prince-of-tennis-ii-u-17-world-cup"
+            },
+            {
+                "name": "The Yakuza's Guide to Babysitting",
+                "originalName": "組長娘と世話係",
+                "slug": "the-yakuza-s-guide-to-babysitting",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6313/cb163c1f061dcf7bbe2c02f39620be58560b2b5449b90a2d28232dcf456e22dc_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/the-yakuza-s-guide-to-babysitting"
+            },
+            {
+                "name": "Tokyo Mew Mew New ♡",
+                "originalName": "東京ミュウミュウ にゅ～♡",
+                "slug": "tokyo-mew-mew-new",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6352/ea8fa7ef86c4a819af9a5432c8cc90426c2d5b10aa12ffd7a7f28983b64af585_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/tokyo-mew-mew-new"
+            },
+            {
+                "name": "Uncle from Another World",
+                "originalName": "異世界おじさん",
+                "slug": "uncle-from-another-world",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6349/8723f1799136a4b8ef6b16a82bc63cf38c0e86957834b5304c293576a1143a29_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/uncle-from-another-world"
+            },
+            {
+                "name": "Utawarerumono: Mask of Truth",
+                "originalName": "うたわれるもの 二人の白皇",
+                "slug": "utawarerumono-mask-of-truth",
+                "type": "TV",
+                "image": "https://thicc.mywaifulist.moe/series/6353/cdddf88b667431575c90b9dd808f563c42bc487e59a5fec2c237980b440d6348_thumbnail.jpg",
+                "url": "https://mywaifulist.moe/series/utawarerumono-mask-of-truth"
+            }
+        ]
+    }
+}
+</code></pre></div>
+<p>This endpoint returns the data of airing anime of the current season.</p>
+<h2 id='get-series-data-by-its-slug'>Get Series Data by its Slug</h2><h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/series/:slug</code></p>
+<h3 id='path-parameters-2'>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>true</td>
+<td>Slug of the series from MyWaifuList</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The reponse schema would be like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "status": 200,
+    "error": false,
+    "message": "Success",
+    "data": {
+        "name": "Nisekoi: False Love",
+        "originalName": "Nisekoi",
+        "romajiName": null,
+        "slug": "nisekoi-false-love",
+        "type": "TV",
+        "episodes": 20,
+        "nsfw": false,
+        "studio": null,
+        "characters": [
+            {
+                "name": "Kirisaki Chitoge",
+                "originalName": "桐崎 千棘, Ichijō Chitoge",
+                "slug": "kirisaki-chitoge",
+                "popularityRank": 78,
+                "likeRank": 103,
+                "trashRank": 61,
+                "image": "https://thicc.mywaifulist.moe/waifus/132/b5aae2947b7f7419d9f332f07a275db6784d9100bd003fc2a4fd4f382790c7b4_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/kirisaki-chitoge"
+            },
+            {
+                "name": "Kosaki Onodera",
+                "originalName": "",
+                "slug": "kosaki-onodera-nisekoi-false-love",
+                "popularityRank": 123,
+                "likeRank": 134,
+                "trashRank": 138,
+                "image": "https://thicc.mywaifulist.moe/waifus/137/e95b9668b9184e61c616bc2f9adf0fc460445b2c7b6f24cce234cd1e65798f0d_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/kosaki-onodera-nisekoi-false-love"
+            },
+            {
+                "name": "Marika Tachibana",
+                "originalName": "Mari; Ojou-sama",
+                "slug": "marika-tachibana",
+                "popularityRank": 355,
+                "likeRank": 454,
+                "trashRank": 165,
+                "image": "https://thicc.mywaifulist.moe/waifus/185/86ae885139ae4233ee4713dcba4b7389484e278a7870a036ad74965cc31b2ea7_thumb.jpg",
+                "url": "https://mywaifulist.moe/waifu/marika-tachibana"
+            },
+            {
+                "name": "Seishirou Tsugumi",
+                "originalName": "鶫 誠士郎",
+                "slug": "seishirou-tsugumi-nisekoi-false-love",
+                "popularityRank": 247,
+                "likeRank": 225,
+                "trashRank": 489,
+                "image": "https://thicc.mywaifulist.moe/waifus/286/5b3429d49f7780eee0aa979efb24fd70663955d1be7a4770bbfaee9c35874f7b_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/seishirou-tsugumi-nisekoi-false-love"
+            },
+            {
+                "name": "Ruri Miyamoto",
+                "originalName": "",
+                "slug": "ruri-miyamoto",
+                "popularityRank": 1225,
+                "likeRank": 1502,
+                "trashRank": 511,
+                "image": "https://thicc.mywaifulist.moe/waifus/1347/f091c9178b1c2544c1c7b8c931486eaf85f93a7e65ab31c52dea89e5d72e0f6b_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/ruri-miyamoto"
+            },
+            {
+                "name": "Haru Onodera",
+                "originalName": "",
+                "slug": "haru-onodera",
+                "popularityRank": 673,
+                "likeRank": 786,
+                "trashRank": 408,
+                "image": "https://thicc.mywaifulist.moe/waifus/1366/28aab552ccee51f51063896551e6e5b1f5e02a9d2e279f5042e1b62063d65bd9_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/haru-onodera"
+            },
+            {
+                "name": "Paula McCoy",
+                "originalName": "ポーラ・マッコイ",
+                "slug": "paula-mccoy",
+                "popularityRank": 2437,
+                "likeRank": 2856,
+                "trashRank": 1276,
+                "image": "https://thicc.mywaifulist.moe/waifus/5166/03d67db476e34f0c82fe77126102d88e846fbf748bb6f08db82a7daaa0481786_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/paula-mccoy"
+            },
+            {
+                "name": "Nanako Onodera",
+                "originalName": "小野寺 菜々子",
+                "slug": "nanako-onodera",
+                "popularityRank": 3504,
+                "likeRank": 3584,
+                "trashRank": 3017,
+                "image": "https://thicc.mywaifulist.moe/waifus/6274/2a9795bb628edf476626c1e8a03d86c624d0d1f8931fc0d636191dbd43e93f34_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/nanako-onodera"
+            },
+            {
+                "name": "Hana Kirisaki",
+                "originalName": "桐崎 華",
+                "slug": "hana-kirisaki",
+                "popularityRank": 2566,
+                "likeRank": 2532,
+                "trashRank": 2698,
+                "image": "https://thicc.mywaifulist.moe/waifus/6279/f2a9ba72d76961d63ce1a76583bc873e859b280116cca17295cb9e665151ecbe_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/hana-kirisaki"
+            },
+            {
+                "name": "Youko \"Honda\"",
+                "originalName": "ホンダ",
+                "slug": "youko-honda",
+                "popularityRank": 5876,
+                "likeRank": 6780,
+                "trashRank": 3245,
+                "image": "https://thicc.mywaifulist.moe/waifus/6345/3556af33a51f3f5822ab3583610789c02b806be20c2c4b829a7bb1033372dba8_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/youko-honda"
+            },
+            {
+                "name": "Kyoko Hihara",
+                "originalName": "日原 教子",
+                "slug": "kyoko-hihara",
+                "popularityRank": 6072,
+                "likeRank": 8491,
+                "trashRank": 2275,
+                "image": "https://thicc.mywaifulist.moe/waifus/6366/f69edee8e89938eb6e4a74e0730c277ff028ad206422b8c6eb07c9cc7dfdf802_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/kyoko-hihara"
+            },
+            {
+                "name": "Suzu Ayakiji",
+                "originalName": "彩風 涼",
+                "slug": "suzu-ayakiji",
+                "popularityRank": 4656,
+                "likeRank": 4975,
+                "trashRank": 3231,
+                "image": "https://thicc.mywaifulist.moe/waifus/6464/e7e42ad9845c06b3a61ecc7417214c7717c201a1dcf35e888a2b37697747f90c_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/suzu-ayakiji"
+            },
+            {
+                "name": "Yui Kanakura",
+                "originalName": "奏倉 羽",
+                "slug": "yui-kanakura-nisekoi-false-love",
+                "popularityRank": 4398,
+                "likeRank": 3911,
+                "trashRank": 8597,
+                "image": "https://thicc.mywaifulist.moe/waifus/23852/cdf21c3ff08b47720d4ae6a23522614136c90ff012b1766b979009f19b71aeb3_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/yui-kanakura-nisekoi-false-love"
+            },
+            {
+                "name": "Ichijō Raku",
+                "originalName": "一条 楽",
+                "slug": "ichijo-raku",
+                "popularityRank": 7044,
+                "likeRank": 10178,
+                "trashRank": 2647,
+                "image": "https://thicc.mywaifulist.moe/waifus/25702/d0ed994470fbb8d68e56d532602279b92afb544319f41a753bc3028774942e94_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/ichijo-raku"
+            },
+            {
+                "name": "Sasa Miyanagi",
+                "originalName": "",
+                "slug": "sasa-miyanagi",
+                "popularityRank": 17074,
+                "likeRank": 15875,
+                "trashRank": 20591,
+                "image": "https://thicc.mywaifulist.moe/waifus/31387/1f17fd3e981ab60eb63879a7ef0a278f4b92f7723775e47cd1304933352edfc0_thumb.png",
+                "url": "https://mywaifulist.moe/waifu/sasa-miyanagi"
+            },
+            {
+                "name": "Mikage Shinohara",
+                "originalName": "",
+                "slug": "mikage-shinohara",
+                "popularityRank": 17007,
+                "likeRank": 16347,
+                "trashRank": 17711,
+                "image": "https://thicc.mywaifulist.moe/waifus/31388/559a0f38336611e00cfa9bec0a25251896b99cec5924b695120a16e0d4185c15_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/mikage-shinohara"
+            },
+            {
+                "name": "Shuu Maiko",
+                "originalName": "集舞妓",
+                "slug": "shuu-maiko",
+                "popularityRank": 13797,
+                "likeRank": 13929,
+                "trashRank": 11967,
+                "image": "https://thicc.mywaifulist.moe/waifus/33065/65495019e52aa45a38fcd94694e01b4781142e64aa3b03a42cc1dcca70597c52_thumb.jpeg",
+                "url": "https://mywaifulist.moe/waifu/shuu-maiko"
+            },
+            {
+                "name": "Chika Tachibana",
+                "originalName": "橘 千花",
+                "slug": "chika-tachibana-nisekoi-false-love",
+                "popularityRank": 30005,
+                "likeRank": 28029,
+                "trashRank": 31488,
+                "image": "https://thicc.mywaifulist.moe/waifus/41773/bb77b81fba703e169e2db32245e935f1065560ad1b4bbbc247e4ba229920127f_thumb.jpg",
+                "url": "https://mywaifulist.moe/waifu/chika-tachibana-nisekoi-false-love"
+            },
+            {
+                "name": "Night",
+                "originalName": null,
+                "slug": "night-nisekoi-false-love",
+                "popularityRank": 30668,
+                "likeRank": 30943,
+                "trashRank": 26983,
+                "image": "https://thicc.mywaifulist.moe/waifus/41774/775391b9e848a1ec0271f15a010938ef7f5aea48cbca600afa17b5ed45612a5e_thumb.jpg",
+                "url": "https://mywaifulist.moe/waifu/night-nisekoi-false-love"
+            }
+        ],
+        "image": "https://thicc.mywaifulist.moe/series/94/4deb14f4a2ab2b7f04a95db39f8ba2c2a2d5a20ba73988c79f1c0195ccd0066c.jpeg",
+        "description": "Raku Ichijou, a first-year student at Bonyari High School, is the sole heir to an intimidating yakuza family. Ten years ago, Raku made a promise to his childhood friend. Now, all he has to go on is a pendant with a lock, which can only be unlocked with the key which the girl took with her when they parted.\r\n\r\nNow, years later, Raku has grown into a typical teenager, and all he wants is to remain as uninvolved in his yakuza background as possible while spending his school days alongside his middle school crush Kosaki Onodera. However, when the American Bee Hive Gang invades his family's turf, Raku's idyllic romantic dreams are sent for a toss as he is dragged into a frustrating conflict: Raku is to pretend that he is in a romantic relationship with Chitoge Kirisaki, the beautiful daughter of the Bee Hive's chief, so as to reduce the friction between the two groups. Unfortunately, reality could not be farther from this whopping lie—Raku and Chitoge fall in hate at first sight, as the girl is convinced he is a pathetic pushover, and in Raku's eyes, Chitoge is about as attractive as a savage gorilla. \r\n\r\nNisekoi follows the daily antics of this mismatched couple who have been forced to get along for the sake of maintaining the city's peace. With many more girls popping up his life, all involved with Raku's past somehow, his search for the girl who holds his heart and his promise leads him in more unexpected directions than he expects.\r\n\r\n[Written by MAL Rewrite]",
+        "url": "https://mywaifulist.moe/series/nisekoi-false-love"
+    }
+}
+</code></pre></div><h2 id='series-search-by-name'>Series Search By Name</h2><h3 id='http-request-14'>HTTP Request</h3>
+<p><code>GET https://reina-api.vercel.app/api/mwl/series</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td>false</td>
+<td>Name of the series to search</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td>Page of the series search</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The reponse schema would be like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "status": 200,
+    "error": false,
+    "message": "Success",
+    "pagination": {
+        "currentPage": 1,
+        "totalPages": 259,
+        "hasNextPage": true
+    },
+    "data": [
+        {
+            "name": ".Hack Series",
+            "studio": "BEE TRAIN Production Inc.",
+            "originalName": null,
+            "type": "TV",
+            "slug": "hack-series",
+            "image": "https://thicc.mywaifulist.moe/series/10/10/5ad885494ddc48a082b1fce234913f9ca0d79166dde7b84c20355a28341d645c_thumbnail.jpeg",
+            "url": "https://mywaifulist.moe/series/hack-series"
+        },
+        {
+            "name": ".hack//Legend Of The Twilight",
+            "studio": "BEE TRAIN Production Inc.",
+            "originalName": ".hack//Tasogare no Udewa Densetsu, .hack//黄昏の腕輪伝説",
+            "type": "TV",
+            "slug": "hack-legend-of-the-twilight",
+            "image": "https://thicc.mywaifulist.moe/series/4763/3f3488690855b5a2e3313c8ce4fd873d62fe3d0bdd09a50095240b2d451d1998_thumbnail.jpeg",
+            "url": "https://mywaifulist.moe/series/hack-legend-of-the-twilight"
+        },
+        {
+            "name": "'Tis Time for \"Torture,\" Princess",
+            "studio": null,
+            "originalName": "Hime-sama, \"Goumon\" no Jikan desu, 姫様“拷問”の時間です",
+            "type": "Manga",
+            "slug": "tis-time-for-torture-princess",
+            "image": "https://thicc.mywaifulist.moe/series/5131/25dd556eaa8af867325400056c779c1e1bbbf7c56214eae3e726a16f543170e5_thumbnail.jpeg",
+            "url": "https://mywaifulist.moe/series/tis-time-for-torture-princess"
+        },
+        {
+            "name": "[Under Lip] Oyako Neburi ～Sasou Hitozuma ･ Dakaretai Oyako～",
+            "studio": null,
+            "originalName": "[アンダーリップ] 母娘ねぶり～誘う人妻・抱かれたい母娘～",
+            "type": "Game",
+            "slug": "under-lip-oyako-neburi-sasou-hitozuma-dakaretai-oyako",
+            "image": "https://thicc.mywaifulist.moe/series/4951/c517dc3dbbba1944c36b653fd7246b7753a540fcff3cff5d332f268eca1d54b2_thumbnail.png",
+            "url": "https://mywaifulist.moe/series/under-lip-oyako-neburi-sasou-hitozuma-dakaretai-oyako"
+        },
+        {
+            "name": "/Blush-DC: Hi♥mitsu",
+            "studio": null,
+            "originalName": "/Blush-DC～秘♥蜜～",
+            "type": "Manga",
+            "slug": "blush-dc-hi-mitsu",
+            "image": "https://thicc.mywaifulist.moe/series/4746/c118aa00f7ea8071935bb5da88331a54052e30fdbb84ef0e9b5a1e2876f6908a_thumbnail.jpeg",
+            "url": "https://mywaifulist.moe/series/blush-dc-hi-mitsu"
+        },
+        {
+            "name": "07 Ghost",
+            "studio": "Studio Deen",
+            "originalName": "セブンゴースト",
+            "type": "TV",
+            "slug": "07-ghost",
+            "image": "https://thicc.mywaifulist.moe/series/2081/12859e3dbe984cedf24011c9d854f7720ae26e53abf26761735be93a6cfd4d12_thumbnail.jpeg",
+            "url": "https://mywaifulist.moe/series/07-ghost"
+        },
+        {
+            "name": "10 Billion Wives",
+            "studio": null,
+            "originalName": null,
+            "type": "Game",
+            "slug": "10-billion-wives",
+            "image": null,
+            "url": "https://mywaifulist.moe/series/10-billion-wives"
+        },
+        {
+            "name": "22/7",
+            "studio": "A-1 Pictures Inc.",
+            "originalName": null,
+            "type": "TV",
+            "slug": "22-7",
+            "image": "https://thicc.mywaifulist.moe/series/4405/40ecab2b55fd00cd785251960c96593986c868666f1e754ec4bfaec6c08c7790_thumbnail.jpeg",
+            "url": "https://mywaifulist.moe/series/22-7"
+        },
+        {
+            "name": "25-sai no Joshikousei",
+            "studio": null,
+            "originalName": "25歳の女子高生",
+            "type": "TV",
+            "slug": "25-sai-no-joshikousei",
+            "image": "https://thicc.mywaifulist.moe/series/2732/53afee68dc22a08269e48051eb60303db6c950df7f5cf2d7c817de8eabbbfa41_thumbnail.jpeg",
+            "url": "https://mywaifulist.moe/series/25-sai-no-joshikousei"
+        }
+    ]
+}
+</code></pre></div>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
